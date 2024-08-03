@@ -46,17 +46,24 @@
             z-index: 100;
         }
 
+        .navbar img {
+            width: 60px;
+            height: auto;
+        }
+
         /* Hero Section */
         .hero-section {
             background-image: url('https://media.discordapp.net/attachments/1244981194291150948/1269222278273437789/Webp.png?ex=66af46dc&is=66adf55c&hm=2a4ee5e475125c8939ed93b74779a1203ae2a5abe0af908c5515d6d97a18d305&=&format=webp&quality=lossless');
             background-size: cover;
             background-position: center;
-            height: 500px;
+            height: 750px;
             display: flex;
             align-items: center;
             justify-content: center;
             position: relative;
-            margin-top: 80px;
+            margin: 40px auto;
+            border-radius: 12px;
+            max-width: 90%;
         }
 
         .hero-overlay {
@@ -67,6 +74,7 @@
             right: 0;
             bottom: 0;
             z-index: 1;
+            border-radius: 12px;
         }
 
         .hero-content {
@@ -142,6 +150,8 @@
             transition: transform 0.2s ease-in-out;
             text-align: center;
             animation: fadeIn 2s ease-in-out;
+            max-width: 400px;
+            margin: 0 auto;
         }
 
         .card:hover {
@@ -155,11 +165,11 @@
             max-width: 100%;
             max-height: 200px;
             object-fit: contain;
+            margin: 0 auto;
         }
 
         /* Current Update Section */
         .update-section .card {
-            width: 100%;
             margin-bottom: 30px;
             animation: fadeInUp 1s ease-in-out forwards;
         }
@@ -231,8 +241,13 @@
             <span class="text-xl font-bold text-white">Kaiju Paradise</span>
         </div>
         <div class="flex items-center space-x-8">
-            <a href="#" class="text-white text-lg hover:underline">Home</a>
-            <a href="#" class="btn-primary">Discord</a>
+            <a href="https://discord.gg/experiment" class="text-white text-lg hover:underline flex items-center">
+                <span>Discord</span>
+                <span class="ml-2">💬</span>
+            </a>
+            <a href="#fan-arts-section" class="text-white text-lg hover:underline flex items-center">
+                <span>Discover More</span>
+            </a>
         </div>
     </nav>
 
@@ -242,8 +257,8 @@
         <div class="hero-content">
             <h1>Kaiju Paradise</h1>
             <div class="flex justify-center space-x-4">
-                <a href="#" class="btn-primary">Discover more.</a>
-                <a href="#" class="btn-primary">Discover more.</a>
+                <a href="https://discord.gg/experiment" class="btn-primary">Discord</a>
+                <a href="#fan-arts-section" class="btn-primary">Discover more.</a>
             </div>
         </div>
     </section>
@@ -261,7 +276,7 @@
     </section>
 
     <!-- Monthly Fan Arts Section -->
-    <section class="py-16">
+    <section id="fan-arts-section" class="py-16">
         <div class="max-w-6xl mx-auto px-4">
             <h2 class="section-heading">Monthly Fan Arts</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -295,6 +310,19 @@
             <a href="#">Join Our Discord</a>
         </div>
     </footer>
+
+    <script>
+        // Smooth scrolling to Monthly Fan Arts section
+        document.querySelectorAll('a[href^="#fan-arts-section"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center'
+                });
+            });
+        });
+    </script>
 </body>
 
 </html>
