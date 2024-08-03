@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kaiju Paradise Forums</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700&display=swap" rel="stylesheet">
+    <link rel="icon" href="https://media.discordapp.net/attachments/1244981194291150948/1269223111228653568/latest.png?ex=66af47a2&is=66adf622&hm=2e86b8f9ec356559a2a0266e93030c58979683bdc65ef831a31bf2ae09c6e5d6&=&format=webp&quality=lossless" type="image/png">
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #1a1a2e;
+            color: #e5e7eb;
+            scrollbar-width: thin;
+            scrollbar-color: #4f54a5 #1a1a2e;
+            background: #1a1a2e url('https://www.transparenttextures.com/patterns/noise.png') repeat;
+        }
+
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background-color: #4f54a5;
+            border-radius: 5px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background-color: #1a1a2e;
+        }
+
+        /* Navbar */
+        .navbar {
+            background-color: #25254a;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            position: fixed;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: calc(100% - 60px);
+            padding: 10px 20px;
+            z-index: 100;
+        }
+
+        /* Hero Section */
+        .hero-section {
+            background-image: url('https://media.discordapp.net/attachments/1244981194291150948/1269222278273437789/Webp.png?ex=66af46dc&is=66adf55c&hm=2a4ee5e475125c8939ed93b74779a1203ae2a5abe0af908c5515d6d97a18d305&=&format=webp&quality=lossless');
+            background-size: cover;
+            background-position: center;
+            height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            margin-top: 80px;
+        }
+
+        .hero-overlay {
+            background: rgba(26, 26, 46, 0.8);
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 1;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+            text-align: center;
+            max-width: 600px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .hero-content h1 {
+            font-size: 4rem;
+            color: white;
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+            animation: textGlow 3s ease-in-out infinite alternate;
+        }
+
+        .hero-content .btn-primary {
+            background-color: #4f54a5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+            margin-top: 20px;
+            text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.4);
+            animation: fadeIn 3s ease-in-out;
+        }
+
+        .hero-content .btn-primary:hover {
+            background-color: #3b4194;
+            transform: scale(1.05);
+        }
+
+        /* Keyframes */
+        @keyframes fadeIn {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes textGlow {
+            0% {
+                text-shadow: 0px 0px 10px rgba(79, 84, 165, 0.8);
+            }
+
+            100% {
+                text-shadow: 0px 0px 20px rgba(79, 84, 165, 1);
+            }
+        }
+
+        /* Section Heading */
+        .section-heading {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 40px;
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        /* Card Styles */
+        .card {
+            background-color: #25254a;
+            border-radius: 12px;
+            box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+            padding: 20px;
+            transition: transform 0.2s ease-in-out;
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0px 12px 24px rgba(0, 0, 0, 0.6);
+        }
+
+        .card img {
+            border-radius: 8px;
+            transition: none;
+            max-width: 100%;
+            max-height: 200px;
+            object-fit: contain;
+        }
+
+        /* Current Update Section */
+        .update-section .card {
+            width: 100%;
+            margin-bottom: 30px;
+            animation: fadeInUp 1s ease-in-out forwards;
+        }
+
+        @keyframes fadeInUp {
+            0% {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            padding: 20px;
+            text-align: center;
+            background-color: #1a1a2e;
+            border-top: 2px solid #4f54a5;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .footer a {
+            color: #4f54a5;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.2s ease-in-out;
+        }
+
+        .footer a:hover {
+            color: #3b4194;
+        }
+
+        /* Thriving Community Section */
+        .extra-section {
+            padding: 80px 40px;
+            background-color: #2a2a4f;
+            text-align: center;
+            color: white;
+            animation: fadeIn 2s ease-in-out;
+            margin: 40px auto;
+            max-width: 80%;
+            border-radius: 6rem;
+        }
+
+        .extra-section h3 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            text-shadow: 0px 4px 10px rgba(0, 0, 0, 0.7);
+        }
+
+        .extra-section p {
+            font-size: 1.25rem;
+            max-width: 800px;
+            margin: 0 auto;
+            line-height: 1.8;
+        }
+    </style>
+</head>
+
+<body class="min-h-screen">
+    <!-- Navbar -->
+    <nav class="navbar flex items-center justify-between">
+        <div class="flex items-center space-x-4">
+            <img src="https://media.discordapp.net/attachments/1244981194291150948/1269223111228653568/latest.png?ex=66af47a2&is=66adf622&hm=2e86b8f9ec356559a2a0266e93030c58979683bdc65ef831a31bf2ae09c6e5d6&=&format=webp&quality=lossless" alt="Kaiju Paradise Logo" class="rounded-full">
+            <span class="text-xl font-bold text-white">Kaiju Paradise</span>
+        </div>
+        <div class="flex items-center space-x-8">
+            <a href="#" class="text-white text-lg hover:underline">Home</a>
+            <a href="#" class="btn-primary">Discord</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-overlay"></div>
+        <div class="hero-content">
+            <h1>Kaiju Paradise</h1>
+            <div class="flex justify-center space-x-4">
+                <a href="#" class="btn-primary">Discover more.</a>
+                <a href="#" class="btn-primary">Discover more.</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Current Update Section -->
+    <section class="py-16 update-section">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="section-heading">Current Update</h2>
+            <div class="card">
+                <img src="https://media.discordapp.net/attachments/1244981194291150948/1269225193537142794/Webp.png?ex=66af4993&is=66adf813&hm=3ab71a3162b6c6ac150f6544fc0fc85d24a1569a805d1118afb5be36e93e4e3a&=&format=webp&quality=lossless" alt="Kaiju Paradise v3.2">
+                <h3 class="text-xl font-bold mb-2 text-white mt-4">Kaiju Paradise v3.2</h3>
+                <p class="text-sm text-gray-400">By: USER</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Monthly Fan Arts Section -->
+    <section class="py-16">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="section-heading">Monthly Fan Arts</h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Fan Art Card -->
+                <div class="card">
+                    <img src="https://media.discordapp.net/attachments/1268666019183071313/1269224777999192144/Untitled989_20240802021618.png?ex=66af4930&is=66adf7b0&hm=de343a62a209e055898be2f77c62eae44b99bf3f306ca4167dfed6cd2f31eaaa&=&format=webp&quality=lossless&width=320&height=350" alt="Fan Art 1 by Sillysharkii">
+                    <h3 class="text-xl font-bold mb-2 text-white mt-4">Fan Art 1 by Sillysharkii</h3>
+                </div>
+                <div class="card">
+                    <img src="https://media.discordapp.net/attachments/1268666019183071313/1269224798509207673/Untitled407_20240802005916.png?ex=66af4935&is=66adf7b5&hm=2a66e1a45708b597a39685cb9ac8e287a8e5c75f0feb8a5cfb64d6943ef28a4c&=&format=webp&quality=lossless&width=256&height=350" alt="Fan Art 2 by Bendy">
+                    <h3 class="text-xl font-bold mb-2 text-white mt-4">Fan Art 2 by Bendy</h3>
+                </div>
+                <div class="card">
+                    <img src="https://media.discordapp.net/attachments/1268666019183071313/1269224819522670663/WHIP.png?ex=66af493a&is=66adf7ba&hm=e4ed8f46854cc47c27e119c3f086344d9d76ad4787a41ac25149672beda353d5&=&format=webp&quality=lossless&width=350&height=350" alt="Fan Art 3 by Valyce">
+                    <h3 class="text-xl font-bold mb-2 text-white mt-4">Fan Art 3 by Valyce</h3>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Thriving Community Section -->
+    <section class="extra-section">
+        <h3>Join the Community</h3>
+        <p>Kaiju Paradise has a thriving community of players who enjoy the unique gameplay and engaging content. Join us today and become part of an ever-growing world where you can share your experiences, fan arts, and game strategies with fellow fans.</p>
+    </section>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <p>&copy; 2024 Kaiju Paradise. All Rights Reserved.</p>
+        <div class="mt-4">
+            <a href="#">Join Our Discord</a>
+        </div>
+    </footer>
+</body>
+
+</html>
