@@ -32,6 +32,11 @@
             background-color: #1a1a2e;
         }
 
+        /* Adjustable value for hero section border-radius */
+        :root {
+            --hero-border-radius: 12px; /* Adjust this value to change the border-radius */
+        }
+
         /* Navbar */
         .navbar {
             background-color: #25254a;
@@ -62,7 +67,7 @@
             justify-content: center;
             position: relative;
             margin: 40px auto;
-            border-radius: 12px;
+            border-radius: var(--hero-border-radius); /* Use the adjustable value */
             max-width: 90%;
         }
 
@@ -74,7 +79,7 @@
             right: 0;
             bottom: 0;
             z-index: 1;
-            border-radius: 12px;
+            border-radius: var(--hero-border-radius); /* Use the adjustable value */
         }
 
         .hero-content {
@@ -166,6 +171,25 @@
             max-height: 200px;
             object-fit: contain;
             margin: 0 auto;
+        }
+
+        .card .btn-play {
+            background-color: #4f54a5;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: bold;
+            margin-top: 20px;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out;
+        }
+
+        .card .btn-play:hover {
+            background-color: #3b4194;
+            transform: scale(1.05);
         }
 
         /* Current Update Section */
@@ -270,7 +294,7 @@
             <div class="card">
                 <img src="https://media.discordapp.net/attachments/1244981194291150948/1269225193537142794/Webp.png?ex=66af4993&is=66adf813&hm=3ab71a3162b6c6ac150f6544fc0fc85d24a1569a805d1118afb5be36e93e4e3a&=&format=webp&quality=lossless" alt="Kaiju Paradise v3.2">
                 <h3 class="text-xl font-bold mb-2 text-white mt-4">Kaiju Paradise v3.2</h3>
-                <p class="text-sm text-gray-400">By: USER</p>
+                <a href="https://www.roblox.com/games/6456351776/Kaiju-Paradise" class="btn-play">Play Now</a>
             </div>
         </div>
     </section>
@@ -310,20 +334,6 @@
             <a href="#">Join Our Discord</a>
         </div>
     </footer>
-
-    <script>
-        // Smooth scrolling to Monthly Fan Arts section
-        document.querySelectorAll('a[href^="#fan-arts-section"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth',
-                    block: 'center'
-                });
-            });
-        });
-    </script>
 </body>
 
 </html>
-  
